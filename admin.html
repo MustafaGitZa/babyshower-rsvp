@@ -3,59 +3,70 @@
 <head>
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="style.css">
+
     <script>
         const isLoggedIn = sessionStorage.getItem("admin");
-
         if (!isLoggedIn) {
             window.location.href = "admin-login.html";
         }
     </script>
+
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 </head>
 <body>
 
-<div class="container">
+<div class="wrapper">
 
-    <h1>Guest List Dashboard</h1>
+    <div class="dashboard">
 
-    <!-- STATS -->
-    <div class="stats">
-        <div class="card accepted">
-            <h3 id="acceptedCount">0</h3>
-            <p>Accepted</p>
+        <div class="top-bar">
+            <h1>Guest List</h1>
+            <button onclick="logout()" class="logout-btn">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </button>
         </div>
 
-        <div class="card declined">
-            <h3 id="declinedCount">0</h3>
-            <p>Declined</p>
+        <!-- STATS -->
+        <div class="stats">
+            <div class="card-stat accepted">
+                <h3 id="acceptedCount">0</h3>
+                <p>Accepted</p>
+            </div>
+
+            <div class="card-stat declined">
+                <h3 id="declinedCount">0</h3>
+                <p>Declined</p>
+            </div>
         </div>
+
+        <!-- ACCEPTED -->
+        <h2>Accepted Guests</h2>
+        <table>
+            <thead>
+            <tr><th>Name</th></tr>
+            </thead>
+            <tbody id="acceptedTable"></tbody>
+        </table>
+
+        <!-- DECLINED -->
+        <h2>Declined Guests</h2>
+        <table>
+            <thead>
+            <tr><th>Name</th></tr>
+            </thead>
+            <tbody id="declinedTable"></tbody>
+        </table>
+
     </div>
-
-    <!-- ACCEPTED -->
-    <h2>Accepted Guests</h2>
-    <table>
-        <thead>
-        <tr>
-            <th>Name</th>
-        </tr>
-        </thead>
-        <tbody id="acceptedTable"></tbody>
-    </table>
-
-    <!-- DECLINED -->
-    <h2>Declined Guests</h2>
-    <table>
-        <thead>
-        <tr>
-            <th>Name</th>
-        </tr>
-        </thead>
-        <tbody id="declinedTable"></tbody>
-    </table>
 
 </div>
 
-<button onclick="logout()">Logout</button>
+<script>
+    function logout() {
+        sessionStorage.removeItem("admin");
+        window.location.href = "admin-login.html";
+    }
+</script>
 
 <script src="supabase.js"></script>
 <script src="admin.js"></script>
