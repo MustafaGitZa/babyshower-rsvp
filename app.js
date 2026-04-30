@@ -82,7 +82,8 @@ function showSuccessModal(status) {
             ? "Thank you for accepting the invitation 💛"
             : "Thank you for your response 🤍";
 
-    modal.classList.remove("hidden");
+    modal.classList.add("show");
+    modal.classList.remove("show");
 }
 
 function closeModal() {
