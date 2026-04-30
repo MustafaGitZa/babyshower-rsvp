@@ -16,6 +16,64 @@ body {
 }
 
 /* =========================
+   Admin NavBar 
+========================= */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 25px;
+
+    background: rgba(255, 248, 240, 0.8);
+    backdrop-filter: blur(10px);
+
+    border-bottom: 1px solid #cbb8a5;
+}
+
+.navbar h2 {
+    margin: 0;
+    color: #5c4435;
+    font-size: 18px;
+}
+
+/* NAV BUTTONS */
+.nav-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-btn {
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: 1px solid #cbb8a5;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.2s ease;
+}
+
+/* Clear button */
+.nav-btn.clear {
+    background: #d8c3a5;
+    color: #3b2f2f;
+}
+
+/* Logout button */
+.nav-btn.logout {
+    background: #8b6f5c;
+    color: white;
+}
+
+.nav-btn:hover {
+    transform: scale(1.05);
+}
+
+/* =========================
    CENTER WRAPPER
 ========================= */
 

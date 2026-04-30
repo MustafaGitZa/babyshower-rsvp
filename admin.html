@@ -1,38 +1,28 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="style.css">
 
-    <script>
-        const isLoggedIn = sessionStorage.getItem("admin");
-        if (!isLoggedIn) {
-            window.location.href = "admin-login.html";
-        }
-    </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-</head>
 <body>
+
+<!-- =========================
+     NAVBAR
+========================= -->
+<div class="navbar">
+
+    <h2>Baby Shower Admin</h2>
+
+    <div class="nav-actions">
+        <button onclick="clearAll()" class="nav-btn clear">
+            Clear List
+        </button>
+
+        <button onclick="logout()" class="nav-btn logout">
+            Logout
+        </button>
+    </div>
+
+</div>
 
 <div class="wrapper">
 
     <div class="dashboard">
-
-
-        <div class="top-bar">
-            <h1>Guest List</h1>
-
-            <div class="top-actions">
-                <button onclick="clearAll()" class="clear-btn">
-                    Clear List
-                </button>
-
-                <button onclick="logout()" class="logout-btn">
-                    Logout
-                </button>
-            </div>
-        </div>
 
         <!-- STATS -->
         <div class="stats">
@@ -46,7 +36,6 @@
                 <p>Declined</p>
             </div>
         </div>
-
 
         <!-- ACCEPTED -->
         <h2>Accepted Guests</h2>
@@ -74,15 +63,7 @@
 
 </div>
 
-<script>
-    function logout() {
-        sessionStorage.removeItem("admin");
-        window.location.href = "admin-login.html";
-    }
-</script>
-
 <script src="supabase.js"></script>
 <script src="admin.js"></script>
 
 </body>
-</html>
