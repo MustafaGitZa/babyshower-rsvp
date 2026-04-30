@@ -28,7 +28,6 @@ window.onload = () => {
         let acceptedCount = 0;
         let declinedCount = 0;
 
-        // BUILD ROWS SAFELY
         data.forEach(rsvp => {
 
             const row = document.createElement("tr");
@@ -46,7 +45,6 @@ window.onload = () => {
             }
         });
 
-        // UPDATE COUNTS
         acceptedCountEl.innerText = acceptedCount;
         declinedCountEl.innerText = declinedCount;
     }
@@ -62,7 +60,7 @@ window.onload = () => {
     window.logout = logout;
 
     // =========================
-    // GLOBAL CLEAR FUNCTION (WORKS WITH BUTTON)
+    // CLEAR ALL RSVPs (FIXED FOR UUID)
     // =========================
     window.clearAll = async function () {
 
@@ -73,7 +71,8 @@ window.onload = () => {
         const { error } = await supabaseClient
             .from("rsvps")
             .delete()
-            .neq("id", 0);
+            .gte("id", "00000000-0000-0000-0000-000000000000");
+        // ✅ works for UUID safely
 
         if (error) {
             console.log("CLEAR ERROR:", error);
@@ -82,12 +81,11 @@ window.onload = () => {
         }
 
         alert("All RSVPs cleared!");
-
         loadRSVPs();
     };
 
     // =========================
-    // INIT LOAD + AUTO REFRESH
+    // AUTO REFRESH
     // =========================
     loadRSVPs();
     setInterval(loadRSVPs, 3000);
