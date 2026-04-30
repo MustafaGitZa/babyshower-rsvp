@@ -1,15 +1,154 @@
-body {
-    font-family: Arial, sans-serif;
-    background: #eef1f5;
+/* RESET */
+* {
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* MAIN CONTAINER */
+/* BODY */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa, #e4ecf7);
+}
+
+/* =========================
+   RSVP PAGE (INDEX)
+========================= */
+
+/* CENTER WRAPPER */
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* CARD */
+.card {
+    background: white;
+    padding: 40px 30px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 18px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+}
+
+/* HEADER */
+.header .icon {
+    font-size: 40px;
+    color: #ff6b81;
+    margin-bottom: 10px;
+}
+
+.header h1 {
+    font-size: 26px;
+    margin-bottom: 8px;
+}
+
+.header p {
+    color: #666;
+    margin-bottom: 25px;
+}
+
+/* INPUT */
+.input-group {
+    display: flex;
+    align-items: center;
+    background: #f1f3f6;
+    padding: 14px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: 0.2s;
+}
+
+.input-group:focus-within {
+    background: #e9eef5;
+}
+
+.input-group i {
+    margin-right: 10px;
+    color: #888;
+}
+
+.input-group input {
+    border: none;
+    outline: none;
+    background: none;
+    width: 100%;
+    font-size: 15px;
+}
+
+/* BUTTONS */
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    flex: 1;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+/* ACCEPT */
+.accept {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    color: white;
+}
+
+.accept:hover {
+    transform: translateY(-2px);
+}
+
+/* DECLINE */
+.decline {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white;
+}
+
+.decline:hover {
+    transform: translateY(-2px);
+}
+
+/* SPINNER */
+.spinner {
+    margin: 20px auto;
+    width: 35px;
+    height: 35px;
+    border: 4px solid #eee;
+    border-top: 4px solid #27ae60;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+.hidden {
+    display: none;
+}
+
+/* MESSAGE */
+#message {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* =========================
+   ADMIN DASHBOARD
+========================= */
+
 .container {
     background: white;
     padding: 25px;
-    margin: auto;
+    margin: 30px auto;
     max-width: 1000px;
     border-radius: 14px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
@@ -31,7 +170,7 @@ h1 {
 }
 
 /* CARDS */
-.card {
+.card-stat {
     flex: 1;
     padding: 25px;
     border-radius: 14px;
@@ -41,11 +180,11 @@ h1 {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-.card:hover {
+.card-stat:hover {
     transform: translateY(-4px);
 }
 
-.card h3 {
+.card-stat h3 {
     font-size: 34px;
     margin: 0;
 }
@@ -88,8 +227,8 @@ tr:hover {
     background: #eef3f9;
 }
 
-/* BUTTON */
-button {
+/* BUTTON (ADMIN) */
+.container button {
     padding: 10px 18px;
     border: none;
     cursor: pointer;
@@ -99,38 +238,30 @@ button {
     transition: 0.2s;
 }
 
-button:hover {
+.container button:hover {
     background: #333;
     transform: scale(1.05);
 }
 
-/* SPINNER */
-.spinner {
-    margin: 20px auto;
-    width: 40px;
-    height: 40px;
-    border: 4px solid #eee;
-    border-top: 4px solid #2ecc71;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-@keyframes spin {
-    100% { transform: rotate(360deg); }
-}
+/* =========================
+   RESPONSIVE
+========================= */
 
-.hidden {
-    display: none;
-}
-
-/* MESSAGE */
-#message {
-    margin-top: 15px;
-    font-weight: bold;
-    text-align: center;
-}
-
-/* RESPONSIVE */
 @media (max-width: 768px) {
     .stats {
         flex-direction: column;
@@ -142,5 +273,9 @@ button:hover {
 
     table {
         font-size: 14px;
+    }
+
+    .card {
+        margin: 20px;
     }
 }

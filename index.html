@@ -16,34 +16,37 @@
 
 <body>
 
-<div class="container">
+<div class="wrapper">
 
-    <div class="header">
-        <i class="fa-solid fa-gift icon"></i>
-        <h1>You're Invited 🎉</h1>
-        <p>Please RSVP below</p>
-    </div>
+    <div class="card">
 
-    <div class="form">
-
-        <div class="input-group">
-            <i class="fa-solid fa-user"></i>
-            <input type="text" id="name" placeholder="Enter your name">
+        <div class="header">
+            <i class="fa-solid fa-gift icon"></i>
+            <h1>Baby Shower RSVP</h1>
+            <p>Please confirm your attendance</p>
         </div>
 
-        <div class="buttons">
-            <button id="acceptBtn" class="accept" onclick="submitRSVP('accepted')">
-                <i class="fa-solid fa-check"></i> Accept
-            </button>
+        <div class="form">
 
-            <button id="declineBtn" class="decline" onclick="submitRSVP('declined')">
-                <i class="fa-solid fa-xmark"></i> Decline
-            </button>
+            <div class="input-group">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" id="name" placeholder="Your full name">
+            </div>
+
+            <div class="buttons">
+                <button class="accept" onclick="submitRSVP('accepted')">
+                    <i class="fa-solid fa-check"></i> Accept
+                </button>
+
+                <button class="decline" onclick="submitRSVP('declined')">
+                    <i class="fa-solid fa-xmark"></i> Decline
+                </button>
+            </div>
+
+            <div id="spinner" class="spinner hidden"></div>
+            <p id="message"></p>
+
         </div>
-
-        <div id="spinner" class="spinner hidden"></div>
-
-        <p id="message"></p>
 
     </div>
 
