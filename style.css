@@ -1,259 +1,138 @@
-/* RESET */
+/* =========================
+   GLOBAL NUDE / BEIGE THEME
+========================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* BODY */
 body {
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #f5f7fa, #e4ecf7);
+    background: linear-gradient(135deg, #f5f0ea, #e9dfd2);
+    color: #3b2f2a;
 }
 
 /* =========================
-   RSVP PAGE (INDEX)
+   CENTER WRAPPER
 ========================= */
 
-/* CENTER WRAPPER */
 .wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    padding: 20px;
 }
 
-/* CARD */
-.card {
-    background: white;
-    padding: 40px 30px;
-    width: 100%;
-    max-width: 400px;
+/* =========================
+   GLASS CARD (ALL PAGES)
+========================= */
+
+.card, .dashboard {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(10px);
+    border: 1px solid #cbb8a5;
     border-radius: 18px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-    text-align: center;
-    animation: fadeIn 0.5s ease;
+    box-shadow: 0 10px 30px rgba(60, 40, 30, 0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 420px;
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 .header .icon {
-    font-size: 40px;
-    color: #ff6b81;
-    margin-bottom: 10px;
+    font-size: 38px;
+    color: #8b6f5c;
 }
 
 .header h1 {
-    font-size: 26px;
-    margin-bottom: 8px;
+    font-size: 24px;
+    margin-top: 10px;
 }
 
 .header p {
-    color: #666;
-    margin-bottom: 25px;
+    color: #6b5a50;
+    font-size: 14px;
 }
 
-/* INPUT */
+/* =========================
+   INPUT
+========================= */
+
 .input-group {
     display: flex;
     align-items: center;
-    background: #f1f3f6;
-    padding: 14px;
+    background: rgba(255,255,255,0.6);
+    border: 1px solid #cbb8a5;
+    padding: 12px;
     border-radius: 10px;
-    margin-bottom: 20px;
-    transition: 0.2s;
-}
-
-.input-group:focus-within {
-    background: #e9eef5;
+    margin-bottom: 15px;
 }
 
 .input-group i {
     margin-right: 10px;
-    color: #888;
+    color: #8b6f5c;
 }
 
 .input-group input {
     border: none;
     outline: none;
-    background: none;
+    background: transparent;
     width: 100%;
-    font-size: 15px;
-}
-
-/* BUTTONS */
-.buttons {
-    display: flex;
-    gap: 10px;
-}
-
-button {
-    flex: 1;
-    padding: 14px;
-    border: none;
-    border-radius: 10px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.2s ease;
-}
-
-/* ACCEPT */
-.accept {
-    background: linear-gradient(135deg, #2ecc71, #27ae60);
-    color: white;
-}
-
-.accept:hover {
-    transform: translateY(-2px);
-}
-
-/* DECLINE */
-.decline {
-    background: linear-gradient(135deg, #e74c3c, #c0392b);
-    color: white;
-}
-
-.decline:hover {
-    transform: translateY(-2px);
-}
-
-/* SPINNER */
-.spinner {
-    margin: 20px auto;
-    width: 35px;
-    height: 35px;
-    border: 4px solid #eee;
-    border-top: 4px solid #27ae60;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    100% { transform: rotate(360deg); }
-}
-
-.hidden {
-    display: none;
-}
-
-/* MESSAGE */
-#message {
-    margin-top: 15px;
-    font-weight: bold;
+    font-size: 14px;
 }
 
 /* =========================
-   ADMIN DASHBOARD
+   BUTTONS
 ========================= */
 
-.container {
-    background: white;
-    padding: 25px;
-    margin: 30px auto;
-    max-width: 1000px;
-    border-radius: 14px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-}
-
-/* TITLE */
-h1 {
-    margin-bottom: 25px;
-    text-align: center;
-    color: #222;
-    font-size: 28px;
-}
-
-/* STATS */
-.stats {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 25px;
-}
-
-/* CARDS */
-.card-stat {
-    flex: 1;
-    padding: 25px;
-    border-radius: 14px;
-    color: white;
-    text-align: center;
-    transition: 0.2s ease;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.card-stat:hover {
-    transform: translateY(-4px);
-}
-
-.card-stat h3 {
-    font-size: 34px;
-    margin: 0;
-}
-
-/* COLORS */
-.accepted {
-    background: linear-gradient(135deg, #2ecc71, #27ae60);
-}
-
-.declined {
-    background: linear-gradient(135deg, #e74c3c, #c0392b);
-}
-
-/* TABLE */
-table {
+button {
     width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 30px;
+    padding: 12px;
     border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-
-th, td {
-    padding: 14px;
-    text-align: left;
-}
-
-th {
-    background: #1f1f1f;
-    color: white;
-    font-weight: 600;
-}
-
-tr:nth-child(even) {
-    background: #f9fafc;
-}
-
-tr:hover {
-    background: #eef3f9;
-}
-
-/* BUTTON (ADMIN) */
-.container button {
-    padding: 10px 18px;
-    border: none;
+    border: 1px solid #b89f8a;
     cursor: pointer;
-    background: #1f1f1f;
-    color: white;
-    border-radius: 8px;
+    font-weight: bold;
     transition: 0.2s;
 }
 
-.container button:hover {
-    background: #333;
-    transform: scale(1.05);
+button:hover {
+    transform: translateY(-2px);
 }
 
-/* DASHBOARD LAYOUT */
+.accept {
+    background: #bfa38f;
+    color: white;
+}
+
+.decline {
+    background: #a87c6b;
+    color: white;
+}
+
+.primary-btn {
+    background: #8b6f5c;
+    color: white;
+}
+
+/* =========================
+   DASHBOARD
+========================= */
+
 .dashboard {
-    width: 100%;
     max-width: 900px;
-    background: white;
-    padding: 30px;
-    border-radius: 18px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
 }
 
-/* TOP BAR */
 .top-bar {
     display: flex;
     justify-content: space-between;
@@ -262,74 +141,126 @@ tr:hover {
 }
 
 .top-bar h1 {
-    margin: 0;
+    font-size: 22px;
 }
 
-/* LOGOUT BUTTON */
-.logout-btn {
-    background: #1f1f1f;
-    color: white;
-    border: none;
-    padding: 10px 14px;
-    border-radius: 8px;
-    cursor: pointer;
+/* STATS */
+.stats {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
-.logout-btn:hover {
-    background: #333;
+.card-stat {
+    flex: 1;
+    text-align: center;
+    padding: 15px;
+    border: 1px solid #cbb8a5;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.5);
 }
 
-/* PRIMARY BUTTON (LOGIN) */
-.primary-btn {
+.card-stat h3 {
+    font-size: 28px;
+}
+
+/* =========================
+   TABLES
+========================= */
+
+table {
     width: 100%;
-    background: #1f1f1f;
-    color: white;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background: rgba(255,255,255,0.4);
+    border: 1px solid #cbb8a5;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #d8c8b8;
+}
+
+th {
+    background: rgba(139, 111, 92, 0.15);
+    text-align: left;
+}
+
+/* =========================
+   SPINNER
+========================= */
+
+.spinner {
+    margin: 15px auto;
+    width: 30px;
+    height: 30px;
+    border: 3px solid #eee;
+    border-top: 3px solid #8b6f5c;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.hidden {
+    display: none;
+}
+
+/* =========================
+   MESSAGE
+========================= */
+
+#message, #error {
+    text-align: center;
     margin-top: 10px;
+    font-weight: bold;
+    color: #6b4f42;
 }
 
-.primary-btn:hover {
-    background: #333;
+/* =========================
+   MODAL
+========================= */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.35);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* ERROR TEXT */
-#error {
-    color: red;
+.modal-content {
+    background: rgba(255,255,255,0.9);
+    border: 1px solid #cbb8a5;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    width: 300px;
+}
+
+.modal-content button {
     margin-top: 10px;
 }
 
 /* =========================
-   ANIMATIONS
+   MOBILE FIX
 ========================= */
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
+@media (max-width: 600px) {
+    .card, .dashboard {
+        padding: 20px;
+        width: 100%;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media (max-width: 768px) {
     .stats {
         flex-direction: column;
     }
+}
 
-    .container {
-        padding: 15px;
-    }
-
-    table {
-        font-size: 14px;
-    }
-
-    .card {
-        margin: 20px;
-    }
+@keyframes spin {
+    100% { transform: rotate(360deg); }
 }

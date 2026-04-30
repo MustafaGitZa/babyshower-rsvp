@@ -24,6 +24,7 @@
             <i class="fa-solid fa-gift icon"></i>
             <h1>Baby Shower RSVP</h1>
             <p>Please confirm your attendance</p>
+            <p class="deadline">Please RSVP by <b>15 June</b></p>
         </div>
 
         <div class="form">
@@ -50,6 +51,16 @@
 
     </div>
 
+</div>
+
+<div id="successModal" class="modal hidden">
+    <div class="modal-content">
+        <h2>RSVP Successful 🎉</h2>
+        <p id="modalText"></p>
+
+        <button onclick="addToCalendar()">Add to Calendar</button>
+        <button onclick="closeModal()">Close</button>
+    </div>
 </div>
 
 <script src="supabase.js"></script>
