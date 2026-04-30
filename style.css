@@ -338,6 +338,61 @@ th {
     }
 }
 
+
+/* =========================
+   SCROLLABLE TABLE WRAPPER
+========================= */
+
+.table-wrapper {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #cbb8a5;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* keep table inside scroll area */
+.table-wrapper table {
+    margin: 0;
+}
+
+/* sticky header for better UX */
+thead th {
+    position: sticky;
+    top: 0;
+    background: rgba(139, 111, 92, 0.9);
+    color: white;
+    z-index: 2;
+}
+
+/* =========================
+   ADMIN ACTION BUTTONS
+========================= */
+
+.top-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.logout-btn,
+.clear-btn {
+    background: #8b6f5c;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.clear-btn {
+    background: #a87c6b;
+}
+
+.logout-btn:hover,
+.clear-btn:hover {
+    transform: scale(1.05);
+}
+
 /* =========================
    ANIMATION
 ========================= */

@@ -19,11 +19,19 @@
 
     <div class="dashboard">
 
+
         <div class="top-bar">
             <h1>Guest List</h1>
-            <button onclick="logout()" class="logout-btn">
-                <i class="fa-solid fa-right-from-bracket"></i>
-            </button>
+
+            <div class="top-actions">
+                <button onclick="clearAll()" class="clear-btn">
+                    Clear List
+                </button>
+
+                <button onclick="logout()" class="logout-btn">
+                    Logout
+                </button>
+            </div>
         </div>
 
         <!-- STATS -->
@@ -39,23 +47,28 @@
             </div>
         </div>
 
+
         <!-- ACCEPTED -->
         <h2>Accepted Guests</h2>
-        <table>
-            <thead>
-            <tr><th>Name</th></tr>
-            </thead>
-            <tbody id="acceptedTable"></tbody>
-        </table>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                <tr><th>Name</th></tr>
+                </thead>
+                <tbody id="acceptedTable"></tbody>
+            </table>
+        </div>
 
         <!-- DECLINED -->
         <h2>Declined Guests</h2>
-        <table>
-            <thead>
-            <tr><th>Name</th></tr>
-            </thead>
-            <tbody id="declinedTable"></tbody>
-        </table>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                <tr><th>Name</th></tr>
+                </thead>
+                <tbody id="declinedTable"></tbody>
+            </table>
+        </div>
 
     </div>
 

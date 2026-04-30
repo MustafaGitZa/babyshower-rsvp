@@ -1,6 +1,11 @@
+
 window.onload = () => {
 
+    // =========================
+    // LOAD RSVP DATA
+    // =========================
     async function loadRSVPs() {
+
         const { data, error } = await supabaseClient
             .from("rsvps")
             .select("*");
@@ -16,33 +21,39 @@ window.onload = () => {
         const acceptedCountEl = document.getElementById("acceptedCount");
         const declinedCountEl = document.getElementById("declinedCount");
 
+        // CLEAR TABLES
         acceptedTable.innerHTML = "";
         declinedTable.innerHTML = "";
 
         let acceptedCount = 0;
         let declinedCount = 0;
 
+        // BUILD ROWS SAFELY
         data.forEach(rsvp => {
 
-            const row = `
-                <tr>
-                    <td>${rsvp.name}</td>
-                </tr>
-            `;
+            const row = document.createElement("tr");
+            const cell = document.createElement("td");
+            cell.textContent = rsvp.name;
+
+            row.appendChild(cell);
 
             if (rsvp.status === "accepted") {
-                acceptedTable.innerHTML += row;
+                acceptedTable.appendChild(row);
                 acceptedCount++;
             } else {
-                declinedTable.innerHTML += row;
+                declinedTable.appendChild(row);
                 declinedCount++;
             }
         });
 
+        // UPDATE COUNTS
         acceptedCountEl.innerText = acceptedCount;
         declinedCountEl.innerText = declinedCount;
     }
 
+    // =========================
+    // LOGOUT
+    // =========================
     function logout() {
         sessionStorage.removeItem("admin");
         window.location.href = "admin-login.html";
@@ -50,6 +61,34 @@ window.onload = () => {
 
     window.logout = logout;
 
+    // =========================
+    // GLOBAL CLEAR FUNCTION (WORKS WITH BUTTON)
+    // =========================
+    window.clearAll = async function () {
+
+        const confirmClear = confirm("Are you sure you want to delete ALL RSVPs?");
+
+        if (!confirmClear) return;
+
+        const { error } = await supabaseClient
+            .from("rsvps")
+            .delete()
+            .neq("id", 0);
+
+        if (error) {
+            console.log("CLEAR ERROR:", error);
+            alert("Failed to clear data");
+            return;
+        }
+
+        alert("All RSVPs cleared!");
+
+        loadRSVPs();
+    };
+
+    // =========================
+    // INIT LOAD + AUTO REFRESH
+    // =========================
     loadRSVPs();
     setInterval(loadRSVPs, 3000);
 };
