@@ -68,4 +68,33 @@ async function submitRSVP(status) {
         message.innerText = "Error submitting RSVP 😢";
         message.style.color = "red";
     }
+
+
+// =========================
+// SHOW MODAL
+// =========================
+    function showSuccessModal(status) {
+        const modal = document.getElementById("successModal");
+        const text = document.getElementById("modalText");
+
+        if (!modal || !text) {
+            console.error("Modal elements not found in HTML");
+            return;
+        }
+
+        text.innerText =
+            status === "accepted"
+                ? "Thank you for accepting the invitation 💛"
+                : "Thank you for your response 🤍";
+
+        modal.classList.add("show");
+    }
+
+// =========================
+// CLOSE MODAL
+// =========================
+    function closeModal() {
+        const modal = document.getElementById("successModal");
+        modal.classList.remove("show");
+    }
 }
