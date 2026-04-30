@@ -53,18 +53,22 @@
 
 </div>
 
-<div id="successModal" class="modal hidden">
-    <div class="modal-content">
-        <h2>RSVP Successful 🎉</h2>
-        <p id="modalText"></p>
 
-        <button onclick="addToCalendar()">Add to Calendar</button>
-        <button onclick="closeModal()">Close</button>
-    </div>
-</div>
 
 <script src="supabase.js"></script>
 <script src="app.js"></script>
+<div id="successModal" class="modal">
+    <div class="modal-content">
 
+        <h2>RSVP Successful 🎉</h2>
+        <p id="modalText"></p>
+
+        <div class="modal-actions">
+            <button onclick="addToCalendar()">Add to Calendar</button>
+            <button onclick="closeModal()">Close</button>
+        </div>
+
+    </div>
+</div>
 </body>
 </html>
