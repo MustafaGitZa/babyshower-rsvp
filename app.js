@@ -15,7 +15,6 @@ async function submitRSVP(status) {
         return;
     }
 
-    // prevent double click
     if (!spinner.classList.contains("hidden")) return;
 
     spinner.classList.remove("hidden");
@@ -24,7 +23,6 @@ async function submitRSVP(status) {
     try {
         const cleanName = name.toLowerCase();
 
-        // CHECK EXISTING RSVP
         const { data: existing, error: checkError } = await supabaseClient
             .from("rsvps")
             .select("id")
@@ -43,7 +41,6 @@ async function submitRSVP(status) {
             return;
         }
 
-        // INSERT RSVP
         const { error } = await supabaseClient
             .from("rsvps")
             .insert([
@@ -68,33 +65,57 @@ async function submitRSVP(status) {
         message.innerText = "Error submitting RSVP 😢";
         message.style.color = "red";
     }
-
+}
 
 // =========================
 // SHOW MODAL
 // =========================
-    function showSuccessModal(status) {
-        const modal = document.getElementById("successModal");
-        const text = document.getElementById("modalText");
+function showSuccessModal(status) {
+    const modal = document.getElementById("successModal");
+    const text = document.getElementById("modalText");
 
-        if (!modal || !text) {
-            console.error("Modal elements not found in HTML");
-            return;
-        }
+    if (!modal || !text) return;
 
-        text.innerText =
-            status === "accepted"
-                ? "Thank you for accepting the invitation 💛"
-                : "Thank you for your response 🤍";
+    text.innerText =
+        status === "accepted"
+            ? "Thank you for accepting the invitation 💛"
+            : "Thank you for your response 🤍";
 
-        modal.classList.add("show");
-    }
+    modal.classList.add("show");
+}
 
 // =========================
 // CLOSE MODAL
 // =========================
-    function closeModal() {
-        const modal = document.getElementById("successModal");
-        modal.classList.remove("show");
-    }
+function closeModal() {
+    document.getElementById("successModal")
+        .classList.remove("show");
 }
+
+// =========================
+// GLOBAL FUNCTIONS (FOR HTML BUTTONS)
+// =========================
+window.addToCalendar = function () {
+    const event = `
+BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+SUMMARY:Baby Shower Event
+DESCRIPTION:You are invited 💛
+DTSTART:20260615T100000
+DTEND:20260615T130000
+END:VEVENT
+END:VCALENDAR`;
+
+    const blob = new Blob([event], { type: "text/calendar" });
+    const link = document.createElement("a");
+
+    link.href = URL.createObjectURL(blob);
+    link.download = "baby-shower.ics";
+    link.click();
+};
+
+window.closeModal = function () {
+    document.getElementById("successModal")
+        .classList.remove("show");
+};
