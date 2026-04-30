@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Baby Shower RSVP</title>
 
     <link rel="stylesheet" href="style.css">
@@ -22,13 +25,13 @@
     </div>
 
     <div class="form">
+
         <div class="input-group">
             <i class="fa-solid fa-user"></i>
             <input type="text" id="name" placeholder="Enter your name">
         </div>
 
         <div class="buttons">
-
             <button id="acceptBtn" class="accept" onclick="submitRSVP('accepted')">
                 <i class="fa-solid fa-check"></i> Accept
             </button>
@@ -36,14 +39,12 @@
             <button id="declineBtn" class="decline" onclick="submitRSVP('declined')">
                 <i class="fa-solid fa-xmark"></i> Decline
             </button>
-
         </div>
 
-        <!-- SPINNER -->
         <div id="spinner" class="spinner hidden"></div>
 
-        <!-- MESSAGE -->
         <p id="message"></p>
+
     </div>
 
 </div>
