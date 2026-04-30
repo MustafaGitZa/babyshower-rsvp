@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Baby Shower RSVP</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <i class="fa-solid fa-gift icon"></i>
+        <h1>You're Invited 🎉</h1>
+        <p>Please RSVP below</p>
+    </div>
+
+    <div class="form">
+        <div class="input-group">
+            <i class="fa-solid fa-user"></i>
+            <input type="text" id="name" placeholder="Enter your name">
+        </div>
+
+        <div class="buttons">
+
+            <button id="acceptBtn" class="accept" onclick="submitRSVP('accepted')">
+                <i class="fa-solid fa-check"></i> Accept
+            </button>
+
+            <button id="declineBtn" class="decline" onclick="submitRSVP('declined')">
+                <i class="fa-solid fa-xmark"></i> Decline
+            </button>
+
+        </div>
+
+        <!-- SPINNER -->
+        <div id="spinner" class="spinner hidden"></div>
+
+        <!-- MESSAGE -->
+        <p id="message"></p>
+    </div>
+
+</div>
+
+<script src="supabase.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>

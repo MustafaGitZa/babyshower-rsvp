@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        const isLoggedIn = sessionStorage.getItem("admin");
+
+        if (!isLoggedIn) {
+            window.location.href = "admin-login.html";
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Guest List Dashboard</h1>
+
+    <!-- STATS -->
+    <div class="stats">
+        <div class="card accepted">
+            <h3 id="acceptedCount">0</h3>
+            <p>Accepted</p>
+        </div>
+
+        <div class="card declined">
+            <h3 id="declinedCount">0</h3>
+            <p>Declined</p>
+        </div>
+    </div>
+
+    <!-- ACCEPTED -->
+    <h2>Accepted Guests</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+        </tr>
+        </thead>
+        <tbody id="acceptedTable"></tbody>
+    </table>
+
+    <!-- DECLINED -->
+    <h2>Declined Guests</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+        </tr>
+        </thead>
+        <tbody id="declinedTable"></tbody>
+    </table>
+
+</div>
+
+<button onclick="logout()">Logout</button>
+
+<script src="supabase.js"></script>
+<script src="admin.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,141 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #eef1f5;
+    margin: 0;
+    padding: 20px;
+}
+
+/* MAIN CONTAINER */
+.container {
+    background: white;
+    padding: 25px;
+    margin: auto;
+    max-width: 1000px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* TITLE */
+h1 {
+    margin-bottom: 25px;
+    text-align: center;
+    color: #333;
+}
+
+/* STATS GRID */
+.stats {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+/* CARDS */
+.card {
+    flex: 1;
+    padding: 25px;
+    border-radius: 12px;
+    color: white;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.card h3 {
+    font-size: 32px;
+    margin: 0;
+}
+
+/* COLORS */
+.accepted {
+    background: linear-gradient(135deg, #4CAF50, #66bb6a);
+}
+
+.declined {
+    background: linear-gradient(135deg, #f44336, #ef5350);
+}
+
+/* TABLE */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+th, td {
+    padding: 14px;
+    text-align: left;
+}
+
+th {
+    background: #222;
+    color: white;
+    font-weight: 600;
+}
+
+tr {
+    transition: background 0.2s;
+}
+
+tr:hover {
+    background: #f1f5f9;
+}
+
+tr:nth-child(even) {
+    background: #fafafa;
+}
+
+/* BUTTON */
+button {
+    padding: 10px 18px;
+    border: none;
+    cursor: pointer;
+    background: #222;
+    color: white;
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #444;
+    transform: scale(1.05);
+}
+
+/* SPINNER */
+.spinner {
+    margin: 20px auto;
+    width: 40px;
+    height: 40px;
+    border: 4px solid #eee;
+    border-top: 4px solid #4CAF50;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+.hidden {
+    display: none;
+}
+
+/* MESSAGE */
+#message {
+    margin-top: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .stats {
+        flex-direction: column;
+    }
+}
