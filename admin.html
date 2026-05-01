@@ -2,8 +2,11 @@
 <html>
 <head>
     <title>Admin Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="style.css">
 
+    <!-- Protect page -->
     <script>
         const isLoggedIn = sessionStorage.getItem("admin");
         if (!isLoggedIn) {
@@ -11,7 +14,12 @@
         }
     </script>
 
+    <!-- Supabase -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+    <!-- jsPDF (for PDF export) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
 </head>
 
 <body>
@@ -24,6 +32,15 @@
     <h2>Baby Shower Admin</h2>
 
     <div class="nav-actions">
+
+        <button onclick="exportToCSV()" class="nav-btn">
+            Export CSV
+        </button>
+
+        <button onclick="exportToPDF()" class="nav-btn">
+            Export PDF
+        </button>
+
         <button onclick="clearAll()" class="nav-btn clear">
             Clear List
         </button>
@@ -31,10 +48,14 @@
         <button onclick="logout()" class="nav-btn logout">
             Logout
         </button>
+
     </div>
 
 </div>
 
+<!-- =========================
+     MAIN CONTENT
+========================= -->
 <div class="wrapper">
 
     <div class="dashboard">
@@ -78,6 +99,9 @@
 
 </div>
 
+<!-- =========================
+     SCRIPTS (ORDER MATTERS)
+========================= -->
 <script src="supabase.js"></script>
 <script src="admin.js"></script>
 
